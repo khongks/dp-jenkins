@@ -82,6 +82,7 @@ function wait_for () {
   SLEEP_TIME="60"
   RUN_LIMIT=200
   i=0
+  RETRY_MAX
 
   while true; do
 
