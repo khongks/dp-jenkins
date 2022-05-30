@@ -97,7 +97,7 @@ function wait_for () {
     
     if [ "$STATUS" == "Failed" ]; then
         echo '=== Installation has failed ==='
-      if [ $i > $MAX_RETRY ]; then
+      if [ "$i" -gt "$MAX_RETRY" ]; then
         echo '=== Max retry reached ==='
         exit 1
       else
