@@ -79,7 +79,7 @@ function wait_for () {
 
   echo "Waiting for [${OBJ_NAME}] of type [${OBJ_TYPE}] in namespace [${OBJ_NAMESPACE}] to be in [${OBJ_READY_STATUS}] status"
 
-  SLEEP_TIME="60"
+  SLEEP_TIME="30"
   RUN_LIMIT=200
   i=0
   MAX_RETRY=5
