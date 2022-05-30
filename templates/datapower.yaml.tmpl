@@ -1,0 +1,58 @@
+---
+apiVersion: datapower.ibm.com/v1beta3
+kind: DataPowerService
+metadata:
+  name: ${release_name}
+  namespace: ${namespace}
+spec:
+  replicas: 2
+  version: ${version}
+  license:
+    accept: true
+    use: ${use}
+    license: ${license}
+  users:
+  - name: admin
+    accessLevel: privileged
+    passwordSecret: admin-credentials
+  domains:
+  - name: ${release_name}
+    dpApp:
+      config:
+      - default-cfg
+      - hello-cfg
+      local:
+      - default-local
+---
+apiVersion: v1
+kind: Service
+metadata:
+  name: ${release_name}-service
+  namespace: ${namespace}
+spec:
+  selector:
+    app.kubernetes.io/component: datapower
+    app.kubernetes.io/instance: ${namespace}-${release_name}
+  ports:
+  - protocol: TCP
+    port: 8000
+    targetPort: 8000
+    name: mpgw
+---
+apiVersion: route.openshift.io/v1
+kind: Route
+metadata:
+  name: ${release_name}-route
+  namespace: ${namespace}
+spec:
+  host: ${release_name}.${domain_name}
+  port:
+    targetPort: 8000
+  tls:
+    termination: edge
+  to:
+    kind: Service
+    name: ${release_name}-service
+    weight: 100
+  wildcardPolicy: None
+---
