@@ -15,5 +15,5 @@ echo "----------------------------------------------------------------------"
 echo " INFO: Test endpoint https://${release_name}.${domain_name}/api/v1/users"
 echo "----------------------------------------------------------------------"
 
-sleep 3000
+sleep 3
 curl -k https://${release_name}.${domain_name}/api/v1/users
