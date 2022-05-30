@@ -82,7 +82,7 @@ function wait_for () {
   SLEEP_TIME="60"
   RUN_LIMIT=200
   i=0
-  RETRY_MAX
+  MAX_RETRY=5
 
   while true; do
 
@@ -96,8 +96,13 @@ function wait_for () {
     fi
     
     if [ "$STATUS" == "Failed" ]; then
-      echo '=== Installation has failed ==='
-      exit 1
+        echo '=== Installation has failed ==='
+      if [ $i > $MAX_RETRY ]; then
+        echo '=== Max retry reached ==='
+        exit 1
+      else
+        echo '=== Retry again ==='
+      fi
     fi
     
     echo "Sleeping $SLEEP_TIME seconds..."

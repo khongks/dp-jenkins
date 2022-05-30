@@ -15,4 +15,4 @@ echo "----------------------------------------------------------------------"
 echo " INFO: Test endpoint https://${release_name}.${domain_name}/api/v1/users"
 echo "----------------------------------------------------------------------"
 
-curl -k https://${release_name}.${domain_name}/api/v1/users | jq '.'
+curl -k https://${release_name}.${domain_name}/api/v1/users

@@ -15,8 +15,8 @@ namespace=${2:-dp}
 echo "Deleting DataPowerService"
 oc delete DataPowerService ${release_name} -n ${namespace}
 
-echo "Deleting DataPowerMonitor"
-oc delete DataPowerMonitor ${release_name} -n ${namespace}
+#echo "Deleting DataPowerMonitor"
+#oc delete DataPowerMonitor ${release_name} -n ${namespace}
 
 echo "Deleting configmaps"
 oc delete configmap ${release_name}-cfg -n ${namespace}
