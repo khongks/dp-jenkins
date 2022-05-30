@@ -23,7 +23,7 @@ version=${5:-10.0.4.0}
 domain_name=$(oc get route -n ibm-common-services cp-console -o=jsonpath='{.spec.host}'  | cut -c 12-)
 
 ## generate yaml
-( echo "cat <<EOF" ; cat ./templates/datapower.yaml.tmpl;) | \
+( echo "cat <<EOF" ; cat ./templates/datapower.yaml.tmpl; echo EOF) | \
 release_name=${release_name} \
 namespace=${namespace} \
 license=${license} \
