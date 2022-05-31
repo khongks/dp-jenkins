@@ -18,7 +18,7 @@ pipeline {
         }
         stage('Deploy') {
             steps {
-                echo 'Deploy ~ deploy queue manager'
+                echo 'Deploy ~ deploy DataPowerService'
                 sh('./scripts/02-deploy.sh ${RELEASE_NAME} ${NAMESPACE} ${LICENSE} ${USE} ${VERSION}')
             }
         }
