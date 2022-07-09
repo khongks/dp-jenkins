@@ -5,9 +5,9 @@ pipeline {
         ADMIN_PASSWORD      = credentials('admin_password')
         RELEASE_NAME        = "hello"        
         NAMESPACE           = "dp"
-        LICENSE             = "L-RJON-C5SF54"
+        LICENSE             = "L-RJON-CCAT5F"
         USE                 = "production"
-        VERSION             = "10.0.4.0"
+        VERSION             = "10.5.0.0"
     }
     stages {
         stage('Pre Deploy') {
