@@ -16,4 +16,4 @@ echo "----------------------------------------------------------------------"
 echo " INFO: Test endpoint https://${hostname}/api/v1/users"
 echo "----------------------------------------------------------------------"
 
-curl -k https://${hostname}/api/v1/users
+curl -vk https://${hostname}/api/v1/users
