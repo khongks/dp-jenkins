@@ -7,7 +7,7 @@ pipeline {
         NAMESPACE           = "dp"
         LICENSE             = "L-RJON-CCAT5F"
         USE                 = "production"
-        VERSION             = "10.5.0.0"
+        VERSION             = "10.5.0.2"
     }
     stages {
         stage('Pre Deploy') {
