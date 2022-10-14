@@ -9,10 +9,11 @@
 #!/bin/bash
 
 release_name=${1:-hello}
-domain_name=$(oc get route -n ibm-common-services cp-console -o=jsonpath='{.spec.host}'  | cut -c 12-)
+# domain_name=$(oc get route -n ibm-common-services cp-console -o=jsonpath='{.spec.host}'  | cut -c 12-)
+hostname=$(oc get route -n dp ${release_name}-route  -o=jsonpath='{.spec.host}')
 
 echo "----------------------------------------------------------------------"
-echo " INFO: Test endpoint https://${release_name}.${domain_name}/api/v1/users"
+echo " INFO: Test endpoint https://${hostname}/api/v1/users"
 echo "----------------------------------------------------------------------"
 
-curl -k https://${release_name}.${domain_name}/api/v1/users
+curl -k https://${hostname}/api/v1/users
