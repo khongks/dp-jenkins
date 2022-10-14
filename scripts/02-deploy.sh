@@ -37,3 +37,4 @@ oc apply -f templates/datapower.yaml
 # wait_for ${release_name} DatapowerService ${namespace} "Running"
 echo "Wait for DataPowerService to be Ready"
 oc wait -n ${namespace} --for=condition=Ready DataPowerService/${release_name} --timeout=360s
+oc wait -n ${namespace} --for=condition=Ready pod/${release_name}-0 --timeout=120s
